@@ -35,12 +35,10 @@ for idx,url in enumerate(url_):
     if idx%10 ==0:
         print(idx)
     session = HTMLSession()
-    #session = HTMLSession(browser_args=["--proxy-server=10.0.1.72:139"])
     r = session.get(url)
     print(r.headers)
     break
     r.html.render()
-    #time.wait(2*random.random())
     try:
         about = r.html.find('#owner-sub-count', first=True)
         subsCount = getCount(about.text)
